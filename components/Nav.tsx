@@ -59,13 +59,13 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   className={[
-                    "relative text-[0.82rem] tracking-[0.06em] uppercase transition-colors",
+                    "relative text-[0.9rem] tracking-[0.08em] uppercase transition-colors",
                     lightMode
                       ? active
-                        ? "text-[var(--color-cream)]"
-                        : "text-[var(--color-cream)]/70 hover:text-[var(--color-cream)]"
+                        ? "text-[var(--color-cream)] font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]"
+                        : "text-[var(--color-cream)]/95 font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] hover:text-[var(--color-cream)]"
                       : active
-                        ? "text-[var(--color-ink)]"
+                        ? "text-[var(--color-ink)] font-medium"
                         : "text-[var(--color-stone)] hover:text-[var(--color-ink)]",
                   ].join(" ")}
                 >
@@ -82,9 +82,9 @@ export default function Nav() {
             <Link
               href="/contact"
               className={[
-                "hidden sm:inline-flex items-center gap-2 px-4 py-2 text-[0.78rem] tracking-[0.12em] uppercase transition-colors",
+                "hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[0.85rem] tracking-[0.14em] uppercase font-medium transition-colors",
                 lightMode
-                  ? "text-[var(--color-ink)] bg-[var(--color-cream)] hover:bg-[var(--color-gold-light)]"
+                  ? "text-[var(--color-ink)] bg-[var(--color-cream)] hover:bg-[var(--color-gold-light)] shadow-lg shadow-black/15"
                   : "text-[var(--color-cream)] bg-[var(--color-ink)] hover:bg-[var(--color-sage-dark)]",
               ].join(" ")}
             >

@@ -30,8 +30,8 @@ export default function Hero() {
         <div className="flex-1 flex items-end pb-16 lg:pb-24 pt-32">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-8 reveal">
-              <span aria-hidden className="h-px w-12 bg-[var(--color-gold-light)]" />
-              <span className="eyebrow text-[var(--color-gold-light)]">
+              <span aria-hidden className="h-px w-14 bg-[var(--color-gold-light)]" />
+              <span className="text-[0.85rem] sm:text-[0.9rem] font-semibold tracking-[0.22em] uppercase text-[var(--color-gold-light)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
                 Not a tour operator. An agent for you.
               </span>
             </div>
@@ -48,7 +48,7 @@ export default function Hero() {
             </h1>
 
             <p
-              className="reveal mt-8 max-w-xl text-base lg:text-lg text-white/80 leading-relaxed"
+              className="reveal mt-8 max-w-xl text-lg lg:text-[1.2rem] text-white/95 leading-[1.65] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
               style={{ animationDelay: "120ms" }}
             >
               Most travel companies are paid by the resorts, the cruise
@@ -81,7 +81,7 @@ export default function Hero() {
         </div>
 
         {/* Bottom marquee facts */}
-        <div className="border-t border-white/15 py-6 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 text-xs">
+        <div className="border-t border-white/25 py-7 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6">
           <Fact label="Paid by" value="The traveler" />
           <Fact label="Itineraries" value="One of one" />
           <Fact label="Years in the field" value="25+" />
@@ -95,9 +95,11 @@ export default function Hero() {
 function Fact({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <p className="eyebrow text-white/45">{label}</p>
+      <p className="text-[0.78rem] font-medium tracking-[0.22em] uppercase text-white/75 drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
+        {label}
+      </p>
       <p
-        className="mt-1 font-[family-name:var(--font-fraunces)] text-2xl text-[var(--color-cream)]"
+        className="mt-1.5 font-[family-name:var(--font-fraunces)] text-[1.65rem] text-[var(--color-cream)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]"
         style={{ fontVariationSettings: '"opsz" 144' }}
       >
         {value}
