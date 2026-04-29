@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import EmailCapture from "@/components/EmailCapture";
+import NewsletterForm from "@/components/NewsletterForm";
 import SectionEyebrow from "@/components/SectionEyebrow";
 import { getAllContent } from "@/lib/content";
 
@@ -76,26 +76,62 @@ export default async function DealsIndex() {
           ))}
         </ul>
 
-        <div className="mt-20 bg-[var(--color-ink)] text-[var(--color-cream)] p-10 lg:p-16 grid lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6">
-            <p className="eyebrow text-[var(--color-gold-light)]">Inbox-first</p>
-            <h2
-              className="mt-3 text-3xl lg:text-4xl text-[var(--color-cream)]"
-              style={{ fontVariationSettings: '"opsz" 144' }}
-            >
-              Most of our offers never make this page.
-            </h2>
-            <p className="mt-4 text-white/70 leading-relaxed">
-              Partner deals come and go in 48 hours. Subscribers get them
-              first; the rest get what&rsquo;s left.
-            </p>
-          </div>
-          <div className="lg:col-span-6">
-            <EmailCapture variant="dark" source="deals-index" />
-          </div>
-        </div>
+        <NewsletterCallout />
       </section>
     </>
+  );
+}
+
+function NewsletterCallout() {
+  return (
+    <div className="mt-20 relative bg-[var(--color-sage-dark)] text-[var(--color-cream)] overflow-hidden">
+      <div className="grain absolute inset-0 opacity-40" aria-hidden />
+
+      {/* Gold accent rule */}
+      <span
+        aria-hidden
+        className="absolute left-0 top-0 bottom-0 w-[6px] bg-[var(--color-gold)]"
+      />
+
+      <div className="relative p-10 lg:p-14 grid lg:grid-cols-12 gap-10 items-center">
+        <div className="lg:col-span-7">
+          <p className="text-[0.85rem] tracking-[0.22em] uppercase font-semibold text-[var(--color-gold-light)]">
+            The Atelier Letter
+          </p>
+          <h2
+            className="mt-4 text-[clamp(2.2rem,4vw,3.6rem)] leading-[1.02] tracking-[-0.025em] text-balance text-[var(--color-cream)]"
+            style={{ fontVariationSettings: '"opsz" 144, "wght" 480' }}
+          >
+            Most of our offers
+            <em className="italic text-[var(--color-gold-light)]">
+              {" "}never reach this page.
+            </em>
+          </h2>
+          <p className="mt-5 text-[1.05rem] text-white/85 leading-[1.65] max-w-md">
+            Partner deals come and go in 48 hours. Subscribers see them
+            first — the rest get what&rsquo;s left, if anything.
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/75">
+            <li className="flex items-center gap-2">
+              <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--color-gold)]" />
+              One dispatch a month
+            </li>
+            <li className="flex items-center gap-2">
+              <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--color-gold)]" />
+              Subscriber-only rates
+            </li>
+            <li className="flex items-center gap-2">
+              <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--color-gold)]" />
+              Unsubscribe in one click
+            </li>
+          </ul>
+        </div>
+
+        <div className="lg:col-span-5">
+          <NewsletterForm source="deals-callout" />
+        </div>
+      </div>
+    </div>
   );
 }
 

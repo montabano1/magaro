@@ -154,7 +154,7 @@ export default async function HomePage() {
       </section>
 
       {/* Destinations grid */}
-      <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36">
+      <section className="border-t border-[color-mix(in_oklab,var(--color-stone)_22%,transparent)] mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
           <div>
             <SectionEyebrow number="04">Currently Designing</SectionEyebrow>
@@ -467,16 +467,16 @@ function Answer({
 }) {
   return (
     <div>
-      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)] text-sm">
+      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)] text-base">
         {index}.
       </p>
       <h3
-        className="mt-2 font-[family-name:var(--font-fraunces)] text-2xl tracking-[-0.01em]"
-        style={{ fontVariationSettings: '"opsz" 144' }}
+        className="mt-2 font-[family-name:var(--font-fraunces)] text-[1.7rem] leading-[1.15] tracking-[-0.015em]"
+        style={{ fontVariationSettings: '"opsz" 144, "wght" 540' }}
       >
         {title}
       </h3>
-      <p className="mt-3 text-sm text-[var(--color-stone)] leading-relaxed">
+      <p className="mt-4 text-[0.95rem] text-[var(--color-stone)] leading-[1.65]">
         {copy}
       </p>
     </div>
@@ -496,18 +496,20 @@ function Pillar({
 }) {
   const Inner = (
     <>
-      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)] text-sm">
+      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)] text-base">
         {index}.
       </p>
       <h3
-        className="mt-2 font-[family-name:var(--font-fraunces)] text-2xl tracking-[-0.01em]"
-        style={{ fontVariationSettings: '"opsz" 144' }}
+        className="mt-2 font-[family-name:var(--font-fraunces)] text-[1.85rem] leading-[1.1] tracking-[-0.015em]"
+        style={{ fontVariationSettings: '"opsz" 144, "wght" 540' }}
       >
         {title}
       </h3>
-      <p className="mt-3 text-[var(--color-stone)] leading-relaxed">{copy}</p>
+      <p className="mt-4 text-[1rem] text-[var(--color-stone)] leading-[1.65]">
+        {copy}
+      </p>
       {href && (
-        <span className="mt-4 inline-flex items-center gap-2 text-xs tracking-[0.16em] uppercase text-[var(--color-sage-dark)]">
+        <span className="mt-5 inline-flex items-center gap-2 text-[0.78rem] tracking-[0.18em] uppercase font-medium text-[var(--color-sage-dark)]">
           Explore <span aria-hidden>→</span>
         </span>
       )}
@@ -525,16 +527,18 @@ function Pillar({
 function Step({ n, title, copy }: { n: string; title: string; copy: string }) {
   return (
     <div>
-      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)]">
+      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)] text-base">
         {n}.
       </p>
       <h3
-        className="mt-2 font-[family-name:var(--font-fraunces)] text-2xl tracking-[-0.01em]"
-        style={{ fontVariationSettings: '"opsz" 144' }}
+        className="mt-2 font-[family-name:var(--font-fraunces)] text-[1.85rem] leading-[1.1] tracking-[-0.015em]"
+        style={{ fontVariationSettings: '"opsz" 144, "wght" 540' }}
       >
         {title}
       </h3>
-      <p className="mt-3 text-[var(--color-stone)] leading-relaxed">{copy}</p>
+      <p className="mt-4 text-[1rem] text-[var(--color-stone)] leading-[1.65]">
+        {copy}
+      </p>
     </div>
   );
 }

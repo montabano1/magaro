@@ -73,12 +73,14 @@ function Style({ title, copy }: { title: string; copy: string }) {
   return (
     <div>
       <h3
-        className="font-[family-name:var(--font-fraunces)] text-2xl tracking-[-0.01em]"
-        style={{ fontVariationSettings: '"opsz" 144' }}
+        className="font-[family-name:var(--font-fraunces)] text-[1.85rem] leading-[1.1] tracking-[-0.015em]"
+        style={{ fontVariationSettings: '"opsz" 144, "wght" 540' }}
       >
         {title}
       </h3>
-      <p className="mt-2 text-[var(--color-stone)] leading-relaxed">{copy}</p>
+      <p className="mt-3 text-[1rem] text-[var(--color-stone)] leading-[1.65]">
+        {copy}
+      </p>
     </div>
   );
 }

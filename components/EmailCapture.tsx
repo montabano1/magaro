@@ -78,9 +78,11 @@ export default function EmailCapture({
     <form onSubmit={onSubmit} className="w-full" noValidate>
       <div
         className={[
-          "flex flex-col sm:flex-row gap-2 sm:gap-0 sm:items-stretch",
+          "flex flex-col sm:flex-row gap-2 sm:gap-0 sm:items-stretch transition-colors",
           "border-b",
-          isDark ? "border-white/30" : "border-[var(--color-ink)]/30",
+          isDark
+            ? "border-white/60 focus-within:border-[var(--color-gold-light)]"
+            : "border-[var(--color-ink)]/30 focus-within:border-[var(--color-gold)]",
         ].join(" ")}
       >
         <input
@@ -93,7 +95,7 @@ export default function EmailCapture({
           className={[
             "flex-1 bg-transparent py-3 px-1 outline-none text-base placeholder:text-[var(--color-stone)]/70",
             isDark
-              ? "text-[var(--color-cream)] placeholder:text-white/40"
+              ? "text-[var(--color-cream)] placeholder:text-white/65 font-medium"
               : "text-[var(--color-ink)]",
           ].join(" ")}
         />
@@ -101,7 +103,7 @@ export default function EmailCapture({
           type="submit"
           disabled={state === "loading"}
           className={[
-            "px-5 py-3 text-xs tracking-[0.18em] uppercase whitespace-nowrap transition-colors disabled:opacity-50",
+            "px-5 py-3 text-[0.8rem] tracking-[0.2em] uppercase font-semibold whitespace-nowrap transition-colors disabled:opacity-50",
             isDark
               ? "text-[var(--color-gold-light)] hover:text-[var(--color-cream)]"
               : "text-[var(--color-ink)] hover:text-[var(--color-sage-dark)]",

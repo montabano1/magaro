@@ -31,19 +31,19 @@ export default function DestinationsGrid() {
             </div>
             <div className="mt-5 flex items-baseline justify-between gap-4">
               <h3
-                className="font-[family-name:var(--font-fraunces)] text-2xl tracking-[-0.01em]"
-                style={{ fontVariationSettings: '"opsz" 144' }}
+                className="font-[family-name:var(--font-fraunces)] text-[1.85rem] leading-[1.1] tracking-[-0.015em]"
+                style={{ fontVariationSettings: '"opsz" 144, "wght" 540' }}
               >
                 {d.name}
               </h3>
               <span
                 aria-hidden
-                className="text-[var(--color-stone)] group-hover:text-[var(--color-gold)] group-hover:translate-x-1 transition-all"
+                className="text-[var(--color-stone)] group-hover:text-[var(--color-gold)] group-hover:translate-x-1 transition-all text-lg"
               >
                 →
               </span>
             </div>
-            <p className="mt-2 text-sm text-[var(--color-stone)] leading-relaxed">
+            <p className="mt-3 text-[0.95rem] text-[var(--color-stone)] leading-[1.65]">
               {d.blurb}
             </p>
           </Link>

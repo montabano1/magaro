@@ -207,16 +207,18 @@ function Value({
 }) {
   return (
     <div>
-      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)]">
+      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)] text-base">
         {n}.
       </p>
       <h3
-        className="mt-2 font-[family-name:var(--font-fraunces)] text-2xl tracking-[-0.01em]"
-        style={{ fontVariationSettings: '"opsz" 144' }}
+        className="mt-2 font-[family-name:var(--font-fraunces)] text-[1.85rem] leading-[1.1] tracking-[-0.015em]"
+        style={{ fontVariationSettings: '"opsz" 144, "wght" 540' }}
       >
         {title}
       </h3>
-      <p className="mt-3 text-[var(--color-stone)] leading-relaxed">{children}</p>
+      <p className="mt-4 text-[1rem] text-[var(--color-stone)] leading-[1.65]">
+        {children}
+      </p>
     </div>
   );
 }

@@ -79,7 +79,7 @@ export default function GolfPage() {
               Not a tour operator. An agent for your foursome.
             </p>
             <h1
-              className="mt-4 text-[clamp(2.8rem,8vw,7rem)] leading-[0.96] tracking-[-0.025em] text-balance"
+              className="mt-4 text-[clamp(2.8rem,8vw,7rem)] leading-[0.96] tracking-[-0.025em] text-balance text-[var(--color-cream)] drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]"
               style={{ fontVariationSettings: '"opsz" 144' }}
             >
               A buddies trip
@@ -298,16 +298,18 @@ export default function GolfPage() {
 function TripType({ n, title, copy }: { n: string; title: string; copy: string }) {
   return (
     <div>
-      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)]">
+      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)] text-base">
         {n}.
       </p>
       <h3
-        className="mt-2 font-[family-name:var(--font-fraunces)] text-2xl tracking-[-0.01em]"
-        style={{ fontVariationSettings: '"opsz" 144' }}
+        className="mt-2 font-[family-name:var(--font-fraunces)] text-[1.85rem] leading-[1.1] tracking-[-0.015em]"
+        style={{ fontVariationSettings: '"opsz" 144, "wght" 540' }}
       >
         {title}
       </h3>
-      <p className="mt-3 text-[var(--color-stone)] leading-relaxed">{copy}</p>
+      <p className="mt-4 text-[1rem] text-[var(--color-stone)] leading-[1.65]">
+        {copy}
+      </p>
     </div>
   );
 }
