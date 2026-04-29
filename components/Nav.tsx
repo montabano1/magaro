@@ -29,6 +29,12 @@ export default function Nav() {
     setOpen(false);
   }, [pathname]);
 
+  // Pages with a dark/photographic hero where the nav floats over imagery.
+  // On these, when NOT scrolled, the nav uses light text.
+  const hasDarkHero =
+    pathname === "/" || pathname.startsWith("/golf");
+  const lightMode = hasDarkHero && !scrolled && !open;
+
   return (
     <header
       className={[
@@ -40,7 +46,7 @@ export default function Nav() {
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex items-center justify-between h-[68px]">
-          <Logo />
+          <Logo light={lightMode} />
 
           <nav className="hidden lg:flex items-center gap-9">
             {links.map((link) => {
@@ -54,9 +60,13 @@ export default function Nav() {
                   href={link.href}
                   className={[
                     "relative text-[0.82rem] tracking-[0.06em] uppercase transition-colors",
-                    active
-                      ? "text-[var(--color-ink)]"
-                      : "text-[var(--color-stone)] hover:text-[var(--color-ink)]",
+                    lightMode
+                      ? active
+                        ? "text-[var(--color-cream)]"
+                        : "text-[var(--color-cream)]/70 hover:text-[var(--color-cream)]"
+                      : active
+                        ? "text-[var(--color-ink)]"
+                        : "text-[var(--color-stone)] hover:text-[var(--color-ink)]",
                   ].join(" ")}
                 >
                   {link.label}
@@ -71,7 +81,12 @@ export default function Nav() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-[0.78rem] tracking-[0.12em] uppercase text-[var(--color-cream)] bg-[var(--color-ink)] hover:bg-[var(--color-sage-dark)] transition-colors"
+              className={[
+                "hidden sm:inline-flex items-center gap-2 px-4 py-2 text-[0.78rem] tracking-[0.12em] uppercase transition-colors",
+                lightMode
+                  ? "text-[var(--color-ink)] bg-[var(--color-cream)] hover:bg-[var(--color-gold-light)]"
+                  : "text-[var(--color-cream)] bg-[var(--color-ink)] hover:bg-[var(--color-sage-dark)]",
+              ].join(" ")}
             >
               Begin Planning
               <span aria-hidden>→</span>
@@ -84,19 +99,22 @@ export default function Nav() {
             >
               <span
                 className={[
-                  "block h-[1px] w-5 bg-[var(--color-ink)] transition-transform",
+                  "block h-[1px] w-5 transition-transform",
+                  lightMode ? "bg-[var(--color-cream)]" : "bg-[var(--color-ink)]",
                   open ? "translate-y-[6px] rotate-45" : "",
                 ].join(" ")}
               />
               <span
                 className={[
-                  "block h-[1px] w-5 bg-[var(--color-ink)] transition-opacity",
+                  "block h-[1px] w-5 transition-opacity",
+                  lightMode ? "bg-[var(--color-cream)]" : "bg-[var(--color-ink)]",
                   open ? "opacity-0" : "",
                 ].join(" ")}
               />
               <span
                 className={[
-                  "block h-[1px] w-5 bg-[var(--color-ink)] transition-transform",
+                  "block h-[1px] w-5 transition-transform",
+                  lightMode ? "bg-[var(--color-cream)]" : "bg-[var(--color-ink)]",
                   open ? "-translate-y-[6px] -rotate-45" : "",
                 ].join(" ")}
               />
