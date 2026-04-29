@@ -43,8 +43,7 @@ const courses = [
   {
     name: "Bandon Dunes",
     region: "Oregon",
-    image:
-      "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1600&q=85&auto=format&fit=crop",
+    image: "/photos/bandon.jpg",
     note: "Five courses, walking only. Bring rain gear and a low number.",
   },
 ];

@@ -2,10 +2,7 @@ import type { NextConfig } from "next";
 
 const config: NextConfig = {
   images: {
-    remotePatterns: [
-      // Used as fallback only — primary photography lives in /public/photos
-      { protocol: "https", hostname: "images.unsplash.com" },
-    ],
+    // All photography lives in /public/photos — no remote image dependencies.
   },
 };
 
