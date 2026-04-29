@@ -76,22 +76,24 @@ export default function GolfPage() {
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10 min-h-[80svh] flex items-end pb-20 pt-32">
           <div className="max-w-3xl">
             <p className="eyebrow text-[var(--color-gold-light)]">
-              Remarkable Golf Travel
+              Not a tour operator. An agent for your foursome.
             </p>
             <h1
               className="mt-4 text-[clamp(2.8rem,8vw,7rem)] leading-[0.96] tracking-[-0.025em] text-balance"
               style={{ fontVariationSettings: '"opsz" 144' }}
             >
-              Where every golf journey
+              A buddies trip
               <br />
               <em className="italic text-[var(--color-gold-light)]">
-                becomes remarkable.
+                that fits yours.
               </em>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/80 leading-relaxed">
-              Thirty years of personal trips behind every tee time. We pair
-              the courses you&rsquo;ve dreamed of with rooms, partners and
-              dinners that hold up between rounds.
+              Tour operators sell the same Pebble package to everyone.
+              We start with your group — the handicaps, the pace, the
+              evenings — and use a tour operator&rsquo;s package only
+              when it&rsquo;s the answer. Otherwise we build it ourselves.
+              Thirty years of personal trips behind every tee time.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
@@ -122,26 +124,27 @@ export default function GolfPage() {
               className="font-[family-name:var(--font-fraunces)] text-[clamp(1.8rem,3.5vw,3rem)] leading-[1.1] tracking-[-0.02em] text-balance"
               style={{ fontVariationSettings: '"opsz" 144' }}
             >
-              We&rsquo;re not a tour operator. We&rsquo;re a {" "}
+              PerryGolf has a Pebble package. We can {" "}
               <em className="italic text-[var(--color-sage-dark)]">
-                designer
+                book it for you
               </em>
-              {" "} — and we work with the major operators when their
-              partner rates beat our own. Either way, you get the trip you
-              actually wanted.
+              {" "} — at their rate, with our partner perks. Or we&rsquo;ll
+              tell you why your group needs something different, and build
+              that instead.
             </p>
             <div className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-6 text-[var(--color-stone)] leading-relaxed">
               <p>
-                We listen first. Single-digit handicap on a buddy trip and a
-                ten-handicap with his wife are different itineraries —
-                different courses, different tees, different evenings. The
-                first conversation is the most important one.
+                We listen first. A single-digit handicap on a buddy trip
+                and a ten-handicap with his wife are different itineraries
+                — different courses, different tees, different evenings.
+                The first conversation is the most important one.
               </p>
               <p>
                 Then we plan the rounds the way you actually play them.
                 Tee-time spacing. Caddie pairing. Walking versus carts.
                 Where you&rsquo;re eating after the 18th. Whether anyone
-                actually wants to play 36 on day three.
+                actually wants to play 36 on day three. Tour operators
+                ship the same answer to everyone. We don&rsquo;t.
               </p>
             </div>
           </div>

@@ -32,7 +32,7 @@ export default function Hero() {
             <div className="flex items-center gap-3 mb-8 reveal">
               <span aria-hidden className="h-px w-12 bg-[var(--color-gold-light)]" />
               <span className="eyebrow text-[var(--color-gold-light)]">
-                Est. 2018 · A travel atelier
+                Not a tour operator. An agent for you.
               </span>
             </div>
 
@@ -40,20 +40,23 @@ export default function Hero() {
               className="reveal text-[clamp(3rem,8.5vw,7.5rem)] leading-[0.95] tracking-[-0.025em] text-[var(--color-cream)] text-balance"
               style={{ fontVariationSettings: '"opsz" 144, "SOFT" 50' }}
             >
-              Inspired travel,
+              We don&rsquo;t sell trips.
               <br />
               <em className="italic font-light text-[var(--color-gold-light)]">
-                by design.
+                We build them.
               </em>
             </h1>
 
             <p
-              className="reveal mt-8 max-w-xl text-base lg:text-lg text-white/75 leading-relaxed"
+              className="reveal mt-8 max-w-xl text-base lg:text-lg text-white/80 leading-relaxed"
               style={{ animationDelay: "120ms" }}
             >
-              From a Tuscan farmhouse at first light to the back nine at
-              Pebble — we craft considered journeys for clients who notice
-              the details. Quietly, and only by design.
+              Most travel companies are paid by the resorts, the cruise
+              lines, the tour operators they sell. We&rsquo;re paid by
+              you. So we listen first, then build the trip that&rsquo;s
+              actually right — using a tour operator&rsquo;s package, our
+              own villa list, or a single-vendor itinerary built room by
+              room. Whatever serves the trip.
             </p>
 
             <div
@@ -79,10 +82,10 @@ export default function Hero() {
 
         {/* Bottom marquee facts */}
         <div className="border-t border-white/15 py-6 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 text-xs">
-          <Fact label="Years designing" value="25+" />
-          <Fact label="Continents" value="6" />
-          <Fact label="Average trip" value="14 days" />
-          <Fact label="Member" value="ASTA · Virtuoso-aligned partners" />
+          <Fact label="Paid by" value="The traveler" />
+          <Fact label="Itineraries" value="One of one" />
+          <Fact label="Years in the field" value="25+" />
+          <Fact label="Member" value="ASTA · preferred partners" />
         </div>
       </div>
     </section>

@@ -17,12 +17,12 @@ export default async function HomePage() {
     <>
       <Hero />
 
-      {/* The Atelier — intro */}
+      {/* How we're different — the model */}
       <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-40">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
             <Reveal>
-              <SectionEyebrow number="01">The Atelier</SectionEyebrow>
+              <SectionEyebrow number="01">How we&rsquo;re different</SectionEyebrow>
             </Reveal>
           </div>
           <div className="lg:col-span-8">
@@ -31,28 +31,31 @@ export default async function HomePage() {
                 className="font-[family-name:var(--font-fraunces)] text-[clamp(2rem,4vw,3.4rem)] leading-[1.08] tracking-[-0.02em] text-balance"
                 style={{ fontVariationSettings: '"opsz" 144' }}
               >
-                We design private journeys for clients who measure travel
-                in {" "}
+                Most travel companies have a {" "}
                 <em className="italic text-[var(--color-sage-dark)]">
-                  small, perfect moments
+                  trip to sell.
                 </em>
-                {" "}— a quiet table in Positano, a 7:12 tee time at Old Head,
-                a hotel manager who already knows your name.
+                {" "}We don&rsquo;t. We have a client to listen to — and
+                the whole travel industry to choose from on your behalf.
               </p>
             </Reveal>
 
             <Reveal delay={200} className="mt-12 grid sm:grid-cols-2 gap-x-10 gap-y-6 text-[var(--color-stone)] leading-relaxed">
               <p>
-                Founded by Peter and Lisa Magaro — a brother-sister team
-                with five decades between them — Remarkable is built on
-                personal acquaintance. With the families who own the
-                villas. The course pros at the gates. The chef who&rsquo;ll
-                hold a corner table when a flight goes long.
+                Tour operators sell their own packages. Most agencies
+                are paid by the vendors they place you with — the resort,
+                the cruise line, the tour operator. We&rsquo;re paid by
+                you. That single fact is why we can recommend the answer
+                that&rsquo;s actually right, even when it isn&rsquo;t the
+                one that pays us most.
               </p>
               <p>
-                Nothing is templated. Nothing is mass-emailed. Every
-                itinerary begins with a conversation, and ends with a
-                debrief over a glass of something good.
+                If a tour operator&rsquo;s package fits, we&rsquo;ll book
+                it for you, often at a partner rate. If it almost fits,
+                we&rsquo;ll use it as a starting point and tune the rest.
+                If nothing off the shelf works, we&rsquo;ll build the
+                whole thing from scratch — vendor by vendor. You&rsquo;ll
+                always know which is which, and why.
               </p>
             </Reveal>
 
@@ -68,44 +71,84 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Pillars — what we do */}
+      {/* Three answers */}
       <section className="bg-[var(--color-cream-dark)]/60 border-y border-[color-mix(in_oklab,var(--color-stone)_18%,transparent)]">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10 py-24">
           <div className="grid lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
-              <SectionEyebrow number="02">Practices</SectionEyebrow>
+              <SectionEyebrow number="02">Three answers</SectionEyebrow>
               <h2
                 className="mt-4 text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-balance"
                 style={{ fontVariationSettings: '"opsz" 144' }}
               >
-                Four houses,
+                What &ldquo;agent for you&rdquo;
                 <br />
-                <em className="italic text-[var(--color-stone)]">one atelier.</em>
+                <em className="italic text-[var(--color-stone)]">
+                  actually means.
+                </em>
               </h2>
+              <p className="mt-6 text-[var(--color-stone)] leading-relaxed max-w-md">
+                Most clients land on one of three answers. We&rsquo;ll
+                tell you which fits, even when the answer is &ldquo;use
+                a tour operator we don&rsquo;t make as much from.&rdquo;
+              </p>
             </div>
-            <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-12">
-              <Pillar
+            <div className="lg:col-span-8 grid sm:grid-cols-3 gap-x-6 gap-y-10">
+              <Answer
                 index="i"
-                title="Private Journeys"
-                copy="Multi-week itineraries across Europe, the Mediterranean, the South Pacific — private guides, off-market villas, the occasional helicopter."
+                title="A package fits"
+                copy="Sometimes a tour operator&rsquo;s itinerary is the right answer. We book it for you under our partner rate, with the upgrades and amenities we&rsquo;ve negotiated, and stay your single point of contact through the trip."
               />
-              <Pillar
+              <Answer
                 index="ii"
-                title="Golf Travel"
-                copy="Pebble. Sand Valley. The Old Course. Tee-time strategy paired with hotel and dining you&rsquo;d return for even without the rounds."
-                href="/golf"
+                title="It almost fits"
+                copy="The bones of a package are right; the details aren&rsquo;t. We use it as a starting point — same partner pricing — and tune the hotel, the rooms, the dining, the pacing until it&rsquo;s yours."
               />
-              <Pillar
+              <Answer
                 index="iii"
-                title="Multigenerational"
-                copy="Eight to eighty, three generations under one roof — coordinated rooms, parallel itineraries, and one impossibly good family table."
-              />
-              <Pillar
-                index="iv"
-                title="Concierge in Residence"
-                copy="During your trip, a single point of contact in your timezone — for the late train, the booked-out restaurant, the small surprise."
+                title="Build from scratch"
+                copy="Nothing off the shelf works. We design the trip vendor by vendor — villa, driver, chef, courses, restaurants, transitions. Twenty-five years of relationships, all of them on your side of the table."
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What we work on */}
+      <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28">
+        <div className="grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-4">
+            <SectionEyebrow number="03">What we work on</SectionEyebrow>
+            <h2
+              className="mt-4 text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-balance"
+              style={{ fontVariationSettings: '"opsz" 144' }}
+            >
+              The trips
+              <em className="italic text-[var(--color-stone)]"> we&rsquo;re built for.</em>
+            </h2>
+          </div>
+          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-12">
+            <Pillar
+              index="i"
+              title="Private Journeys"
+              copy="Multi-week itineraries across Europe, the Mediterranean, the South Pacific — private guides, off-market villas, the occasional helicopter."
+            />
+            <Pillar
+              index="ii"
+              title="Golf Travel"
+              copy="Pebble. Sand Valley. The Old Course. Tee-time strategy paired with hotel and dining you&rsquo;d return for even without the rounds."
+              href="/golf"
+            />
+            <Pillar
+              index="iii"
+              title="Multigenerational"
+              copy="Eight to eighty, three generations under one roof — coordinated rooms, parallel itineraries, and one impossibly good family table."
+            />
+            <Pillar
+              index="iv"
+              title="Concierge in Residence"
+              copy="During your trip, a single point of contact in your timezone — for the late train, the booked-out restaurant, the small surprise."
+            />
           </div>
         </div>
       </section>
@@ -114,7 +157,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
           <div>
-            <SectionEyebrow number="03">Currently Designing</SectionEyebrow>
+            <SectionEyebrow number="04">Currently Designing</SectionEyebrow>
             <h2
               className="mt-4 text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.02em] text-balance max-w-2xl"
               style={{ fontVariationSettings: '"opsz" 144' }}
@@ -137,7 +180,7 @@ export default async function HomePage() {
         <div className="grain absolute inset-0" aria-hidden />
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <SectionEyebrow number="04">
+            <SectionEyebrow number="05">
               <span className="text-[var(--color-gold-light)]">A House Specialty</span>
             </SectionEyebrow>
             <h2
@@ -206,7 +249,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
-            <SectionEyebrow number="05">How We Work</SectionEyebrow>
+            <SectionEyebrow number="06">How We Work</SectionEyebrow>
             <h2
               className="mt-4 text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-balance"
               style={{ fontVariationSettings: '"opsz" 144' }}
@@ -220,45 +263,62 @@ export default async function HomePage() {
             <Step
               n="i"
               title="The conversation"
-              copy="Forty minutes, no fee. We listen for the kind of trip — and the kind of traveler."
+              copy="Forty minutes, no fee, no pitch. We listen for the kind of trip you actually want — and the kind of traveler you actually are. There&rsquo;s usually a difference."
             />
             <Step
               n="ii"
               title="The blueprint"
-              copy="A first-pass itinerary, two routes deep. Hotels, courses, transitions, the rhythm of your days."
+              copy="Two routes, sketched. One that uses a tour operator&rsquo;s package if it serves you. One we build vendor by vendor. You see both, you see what each costs, you pick."
             />
             <Step
               n="iii"
               title="The reservations"
-              copy="Held under our partners&rsquo; preferred-rate codes. Upgrades, credits and amenities where they exist."
+              copy="Held under our preferred-partner codes — same prices most agencies access, often better. Upgrades, credits and amenities arranged where they exist."
             />
             <Step
               n="iv"
               title="The companion"
-              copy="A live concierge in your timezone for the duration. The flight delay, the rainout, the surprise table."
+              copy="A live concierge in your timezone for the duration. The flight delay, the rainout, the surprise table. Reachable by the people who reach us."
             />
           </div>
         </div>
       </section>
 
-      {/* Testimonial */}
+      {/* Manifesto + Testimonial */}
       <section className="relative bg-[var(--color-ink)] text-[var(--color-cream)] py-28 lg:py-36">
         <div className="grain absolute inset-0" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <span aria-hidden className="font-[family-name:var(--font-fraunces)] text-7xl text-[var(--color-gold)] leading-none">
-            &ldquo;
-          </span>
+          <p className="eyebrow text-[var(--color-gold-light)]">
+            On the wall of the atelier
+          </p>
           <blockquote
-            className="mt-2 font-[family-name:var(--font-fraunces)] text-[clamp(1.6rem,3vw,2.6rem)] leading-[1.25] text-balance"
+            className="mt-6 font-[family-name:var(--font-fraunces)] text-[clamp(1.8rem,3.4vw,2.9rem)] leading-[1.2] text-balance"
             style={{ fontVariationSettings: '"opsz" 144' }}
           >
-            They didn&rsquo;t plan our trip — they choreographed it. The
-            farmhouse owner&rsquo;s mother made us pasta the first night.
-            By the second, we were practically family.
+            We don&rsquo;t sell trips. We sell{" "}
+            <em className="italic text-[var(--color-gold-light)]">
+              judgment
+            </em>{" "}
+            about what trip is right.
           </blockquote>
-          <p className="mt-10 eyebrow text-white/60">
-            — A. &amp; M. Calloway · Family of six · Umbria, 2025
-          </p>
+          <p className="mt-8 eyebrow text-white/55">— Peter Magaro</p>
+
+          <div className="mt-20 max-w-3xl mx-auto pt-12 border-t border-white/15">
+            <span aria-hidden className="font-[family-name:var(--font-fraunces)] text-5xl text-[var(--color-gold)] leading-none block">
+              &ldquo;
+            </span>
+            <blockquote
+              className="mt-2 font-[family-name:var(--font-fraunces)] text-[clamp(1.3rem,2.4vw,2rem)] leading-[1.35] text-balance text-white/85"
+              style={{ fontVariationSettings: '"opsz" 144' }}
+            >
+              They didn&rsquo;t plan our trip — they choreographed it. The
+              farmhouse owner&rsquo;s mother made us pasta the first night.
+              By the second, we were practically family.
+            </blockquote>
+            <p className="mt-6 eyebrow text-white/55">
+              — A. &amp; M. Calloway · Family of six · Umbria, 2025
+            </p>
+          </div>
         </div>
       </section>
 
@@ -269,7 +329,7 @@ export default async function HomePage() {
           <div className="lg:col-span-7">
             <div className="flex items-end justify-between mb-10">
               <div>
-                <SectionEyebrow number="06">The Journal</SectionEyebrow>
+                <SectionEyebrow number="07">The Journal</SectionEyebrow>
                 <h2
                   className="mt-4 text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.05] tracking-[-0.02em]"
                   style={{ fontVariationSettings: '"opsz" 144' }}
@@ -325,7 +385,7 @@ export default async function HomePage() {
 
           {/* Deals */}
           <aside className="lg:col-span-5 lg:pl-10 lg:border-l border-[color-mix(in_oklab,var(--color-stone)_18%,transparent)]">
-            <SectionEyebrow number="07">
+            <SectionEyebrow number="08">
               <span className="text-[var(--color-gold)]">Current Offers</span>
             </SectionEyebrow>
             <h2
@@ -393,6 +453,33 @@ export default async function HomePage() {
         </div>
       </section>
     </>
+  );
+}
+
+function Answer({
+  index,
+  title,
+  copy,
+}: {
+  index: string;
+  title: string;
+  copy: string;
+}) {
+  return (
+    <div>
+      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)] text-sm">
+        {index}.
+      </p>
+      <h3
+        className="mt-2 font-[family-name:var(--font-fraunces)] text-2xl tracking-[-0.01em]"
+        style={{ fontVariationSettings: '"opsz" 144' }}
+      >
+        {title}
+      </h3>
+      <p className="mt-3 text-sm text-[var(--color-stone)] leading-relaxed">
+        {copy}
+      </p>
+    </div>
   );
 }
 

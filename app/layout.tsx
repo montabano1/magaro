@@ -20,15 +20,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://remarkabletraveldesign.com"),
   title: {
-    default: "Remarkable Travel Design — Inspired Travel, By Design",
+    default:
+      "Remarkable Travel Design — We don't sell trips. We build them.",
     template: "%s · Remarkable Travel Design",
   },
   description:
-    "A bespoke travel atelier crafting private journeys — from Tuscan villas to Pebble Beach fairways. Founded by Peter & Lisa Magaro.",
+    "An independent travel atelier. We're paid by the traveler, not the vendor — so we recommend whatever combination of tour operators, villas and direct bookings actually fits your trip. From Tuscan villas to Pebble Beach.",
   openGraph: {
-    title: "Remarkable Travel Design",
+    title: "Remarkable Travel Design — Not a tour operator. An agent for you.",
     description:
-      "Bespoke luxury travel and golf journeys, designed firsthand.",
+      "Independent travel agents working on your side of the table. We use tour operator packages, our villa list, or build vendor by vendor — whichever serves your trip.",
     type: "website",
   },
 };

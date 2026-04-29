@@ -42,8 +42,9 @@ export default function Footer() {
               </span>
             </p>
             <p className="mt-4 text-white/55 text-sm max-w-sm leading-relaxed">
-              A bespoke travel atelier founded by Peter &amp; Lisa Magaro.
-              Five decades of firsthand journeys, distilled into yours.
+              An independent travel atelier founded by Peter &amp; Lisa
+              Magaro. We&rsquo;re paid by you, not the vendors. So we
+              build the trip that&rsquo;s actually right.
             </p>
           </div>
 
@@ -103,7 +104,9 @@ export default function Footer() {
           <p className="flex items-center gap-3">
             <span>Member, ASTA</span>
             <span aria-hidden>·</span>
-            <span>Designed for the considered traveler.</span>
+            <span className="text-[var(--color-gold-light)]">
+              Not a tour operator. An agent for you.
+            </span>
           </p>
         </div>
       </div>
