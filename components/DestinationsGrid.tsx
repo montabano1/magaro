@@ -20,11 +20,15 @@ export default function DestinationsGrid() {
                 aria-hidden
                 className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
               />
-              <div className="absolute top-4 left-4 right-4 flex justify-between items-start text-[var(--color-cream)]">
-                <span className="eyebrow text-[var(--color-cream)]/80">
+              <div
+                aria-hidden
+                className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"
+              />
+              <div className="absolute top-5 left-5 right-5 flex justify-between items-start text-[var(--color-cream)]">
+                <span className="text-[0.85rem] font-bold tracking-[0.22em] uppercase text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="eyebrow text-[var(--color-cream)]/80">
+                <span className="text-[0.85rem] font-bold tracking-[0.22em] uppercase text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
                   {d.region}
                 </span>
               </div>

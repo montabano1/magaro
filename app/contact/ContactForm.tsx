@@ -22,7 +22,7 @@ export default function ContactForm() {
       setState("success");
       setMessage(
         data?.message ||
-          "Thank you — we&rsquo;ll be in touch within one business day."
+          "Thank you — we’ll be in touch within one business day."
       );
     } catch (err) {
       setState("error");

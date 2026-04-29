@@ -26,7 +26,7 @@ const courses = [
     name: "Sand Valley",
     region: "Wisconsin",
     image: "/photos/sand-valley.webp",
-    note: "America&rsquo;s heath. The Lido and Mammoth Dunes are essential.",
+    note: "America’s heath. The Lido and Mammoth Dunes are essential.",
   },
   {
     name: "Erin Hills",
@@ -178,11 +178,17 @@ export default function GolfPage() {
                     sizes="(min-width: 1024px) 33vw, 50vw"
                     className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
                   />
-                  <div className="absolute top-4 left-4 right-4 flex justify-between text-white">
-                    <span className="eyebrow text-white/80">
+                  <div
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"
+                  />
+                  <div className="absolute top-5 left-5 right-5 flex justify-between text-white">
+                    <span className="text-[0.85rem] font-bold tracking-[0.22em] uppercase text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="eyebrow text-white/80">{c.region}</span>
+                    <span className="text-[0.85rem] font-bold tracking-[0.22em] uppercase text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
+                      {c.region}
+                    </span>
                   </div>
                 </div>
                 <h3
