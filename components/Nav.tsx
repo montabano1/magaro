@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 
 const links = [
-  { href: "/journeys", label: "Journeys" },
+  { href: "/about", label: "About" },
+  { href: "/destinations", label: "Destinations" },
   { href: "/golf", label: "Golf" },
   { href: "/journal", label: "Journal" },
-  { href: "/deals", label: "Deals" },
-  { href: "/about", label: "About" },
+  { href: "/testimonials", label: "Testimonials" },
 ];
 
 export default function Nav() {
@@ -37,8 +37,9 @@ export default function Nav() {
 
   return (
     <header
+      style={{ top: "var(--bar-height, 0px)" }}
       className={[
-        "fixed top-0 inset-x-0 z-40 transition-all duration-500",
+        "fixed inset-x-0 z-40 transition-all duration-500",
         scrolled
           ? "bg-[var(--color-cream)]/85 backdrop-blur-md border-b border-[color-mix(in_oklab,var(--color-stone)_18%,transparent)]"
           : "bg-transparent",
@@ -83,9 +84,7 @@ export default function Nav() {
               href="/contact"
               className={[
                 "hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[0.85rem] tracking-[0.14em] uppercase font-medium transition-colors",
-                lightMode
-                  ? "text-[var(--color-ink)] bg-[var(--color-cream)] hover:bg-[var(--color-gold-light)] shadow-lg shadow-black/15"
-                  : "text-[var(--color-cream)] bg-[var(--color-ink)] hover:bg-[var(--color-sage-dark)]",
+                "text-[var(--color-cream)] bg-[var(--color-brand-blue)] hover:bg-[var(--color-sage-dark)]",
               ].join(" ")}
             >
               Begin Planning
@@ -142,7 +141,7 @@ export default function Nav() {
           ))}
           <Link
             href="/contact"
-            className="mt-2 inline-flex items-center justify-center px-4 py-3 text-xs tracking-[0.12em] uppercase text-[var(--color-cream)] bg-[var(--color-ink)]"
+            className="mt-2 inline-flex items-center justify-center px-4 py-3 text-xs tracking-[0.12em] uppercase text-[var(--color-cream)] bg-[var(--color-brand-blue)]"
           >
             Begin Planning
           </Link>

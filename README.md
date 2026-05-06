@@ -7,11 +7,11 @@ file-based MDX content.
 ## What's here
 
 - **/** — Editorial homepage
-- **/journeys** — Bespoke luxury travel landing
+- **/destinations** — Destinations index + per-destination MDX detail pages
 - **/golf** — Golf-specialty landing
 - **/journal** — Posts/articles index + detail pages
 - **/deals** — Current offers index + detail pages
-- **/about** — Founders & atelier
+- **/about** — Founders & studio
 - **/contact** — Inquiry form
 - **/api/subscribe** — Newsletter signup endpoint
 - **/api/contact** — Inquiry submission endpoint

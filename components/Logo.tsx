@@ -11,29 +11,24 @@ export default function Logo({
     <Link
       href="/"
       aria-label="Remarkable Travel Design home"
-      className={`inline-flex items-baseline gap-[0.55rem] transition-colors ${
+      className={`inline-flex items-center transition-opacity hover:opacity-80 ${className}`}
+      style={
         light
-          ? "text-[var(--color-cream)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
-          : "text-[var(--color-ink)]"
-      } ${className}`}
+          ? {
+              background: "rgba(255,255,255,0.82)",
+              backdropFilter: "blur(6px)",
+              borderRadius: "6px",
+              padding: "5px 10px",
+            }
+          : undefined
+      }
     >
-      <span
-        className="font-[family-name:var(--font-fraunces)] text-[1.45rem] leading-none tracking-[-0.01em]"
-        style={{ fontVariationSettings: '"opsz" 144' }}
-      >
-        Remarkable
-      </span>
-      <span
-        aria-hidden
-        className="block h-[7px] w-[7px] rounded-full bg-[var(--color-gold)] translate-y-[-2px]"
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo.svg"
+        alt="Remarkable Travel Design"
+        style={{ width: "180px", height: "auto", display: "block" }}
       />
-      <span
-        className={`text-[0.78rem] tracking-[0.18em] uppercase font-medium translate-y-[-1px] transition-colors ${
-          light ? "text-[var(--color-cream)]" : "text-[var(--color-stone)]"
-        }`}
-      >
-        Travel Design
-      </span>
     </Link>
   );
 }

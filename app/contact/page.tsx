@@ -17,8 +17,15 @@ export default function ContactPage() {
           <em className="italic text-[var(--color-stone)]"> the trip.</em>
         </h1>
         <p className="mt-6 max-w-2xl text-[var(--color-stone)] leading-relaxed">
-          Forty-minute call, no fee. Within 72 hours we&rsquo;ll have a
-          first-pass itinerary in your inbox — two routes, sketched.
+          A thirty-minute discovery call, no fee or commitment. From there,
+          a single design fee of $499 engages us as your agent for the trip
+          — and we begin building the itinerary to your specs, presenting
+          real options along the way.
+        </p>
+        <p className="mt-3 max-w-2xl text-sm text-[var(--color-stone)]/85 leading-relaxed">
+          The design fee is the only fee we charge you directly. It covers
+          planning, booking and concierge through your trip home. Reduced
+          rates are available for friends, family and referrals.
         </p>
       </section>
 
@@ -74,7 +81,7 @@ export default function ContactPage() {
                 className="mt-3 font-[family-name:var(--font-fraunces)] text-2xl leading-tight"
                 style={{ fontVariationSettings: '"opsz" 144' }}
               >
-                Subscribe to the Atelier Letter and we&rsquo;ll come to you.
+                Subscribe to Waypoints and we&rsquo;ll come to you.
               </p>
               <div className="mt-4">
                 <EmailCapture variant="light" source="contact-page" />

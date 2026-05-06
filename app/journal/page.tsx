@@ -101,7 +101,7 @@ export default async function JournalIndex() {
         </ul>
 
         <div className="mt-24 max-w-2xl mx-auto text-center bg-[var(--color-cream-dark)]/60 p-10 lg:p-14">
-          <p className="eyebrow">The Atelier Letter</p>
+          <p className="eyebrow">Waypoints</p>
           <h2
             className="mt-3 text-3xl lg:text-4xl"
             style={{ fontVariationSettings: '"opsz" 144' }}

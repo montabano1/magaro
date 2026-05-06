@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid lg:grid-cols-12 gap-12 pb-20 border-b border-white/10">
           <div className="lg:col-span-5">
             <p className="eyebrow text-[var(--color-gold-light)]">
-              The Atelier Letter
+              Waypoints
             </p>
             <h2 className="mt-3 text-4xl lg:text-5xl text-[var(--color-cream)] text-balance">
               Quietly remarkable journeys, delivered monthly.
@@ -42,27 +42,31 @@ export default function Footer() {
               </span>
             </p>
             <p className="mt-4 text-white/55 text-sm max-w-sm leading-relaxed">
-              An independent travel atelier founded by Peter &amp; Lisa
-              Magaro. We&rsquo;re paid by you, not the vendors. So we
-              build the trip that&rsquo;s actually right.
+              An independent travel studio founded by Peter &amp; Lisa
+              Magaro. Part of our compensation comes directly from you,
+              which keeps us vendor-agnostic — so we build the trip
+              that&rsquo;s actually right.
             </p>
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             <div>
-              <p className="eyebrow text-white/45 mb-4">Atelier</p>
+              <p className="eyebrow text-white/45 mb-4">Studio</p>
               <ul className="space-y-2 text-sm">
-                <FooterLink href="/journeys">Journeys</FooterLink>
-                <FooterLink href="/golf">Golf</FooterLink>
                 <FooterLink href="/about">About</FooterLink>
+                <FooterLink href="/destinations">Destinations</FooterLink>
+                <FooterLink href="/specialties">Specialties</FooterLink>
+                <FooterLink href="/golf">Golf</FooterLink>
                 <FooterLink href="/contact">Contact</FooterLink>
               </ul>
             </div>
             <div>
-              <p className="eyebrow text-white/45 mb-4">Field Notes</p>
+              <p className="eyebrow text-white/45 mb-4">Reading</p>
               <ul className="space-y-2 text-sm">
                 <FooterLink href="/journal">The Journal</FooterLink>
+                <FooterLink href="/itineraries">Sample Itineraries</FooterLink>
                 <FooterLink href="/deals">Deals &amp; Offers</FooterLink>
+                <FooterLink href="/testimonials">Testimonials</FooterLink>
               </ul>
             </div>
             <div>

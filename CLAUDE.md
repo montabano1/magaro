@@ -12,9 +12,10 @@ older WordPress sites: remarkabletraveldesign.com and remarkablegolftravel.com.
 It is a **content + lead capture** site — no transactions. Peter & Lisa
 field inquiries by phone and email; the site exists to:
 
-1. Communicate the positioning (an independent travel atelier, paid by
-   the traveler not the vendor)
-2. Capture emails for the Atelier Letter (newsletter)
+1. Communicate the positioning (an independent travel studio with a
+   field-side concierge — designed in the studio, supported in the field)
+2. Capture emails for Waypoints (newsletter — a mix of field notes and
+   studio notes)
 3. Publish journal entries (field notes, partner introductions) and
    deals (partner-only offers)
 4. Direct serious inquiries into a contact form
@@ -23,18 +24,41 @@ field inquiries by phone and email; the site exists to:
 
 Peter & Lisa are **agnostic agents**, not a tour operator. The wedge is:
 
-> Most travel companies are paid by the resorts, the cruise lines, the
-> tour operators they sell. We're paid by you. So we recommend whatever
-> combination of vendors actually fits your trip — including a tour
-> operator's package when that's the right answer.
+> Most travel companies depend entirely on vendor commissions — the
+> resorts, the cruise lines, the tour operators they sell. We're paid
+> both by vendors (commissions, like any agency) and directly by the
+> client (a single design fee). The client-paid piece is what makes us
+> vendor-agnostic — we recommend whatever combination of vendors
+> actually fits the trip, including a tour operator's package when
+> that's the right answer.
+
+**The compensation model (factual, do not contradict):**
+
+- Discovery call: free, ~30 minutes, no commitment.
+- Design fee: $499 paid by the client, engages Peter & Lisa as the
+  client's agent for the trip. $199 reduced rate for friends, family,
+  and referrals.
+- The design fee is the only fee charged *directly* to the client. It
+  covers planning, booking, and concierge through the trip home.
+- Vendor commissions are still received where they apply, like any
+  agency. The design fee is the structural piece that frees the
+  judgment.
+- The itinerary is built **iteratively** — not handed over as two
+  pre-packaged routes. Real choices are presented at each meaningful
+  junction (the hotel, the route, the day off).
 
 When writing copy:
 
 - **Avoid the words "curated," "bespoke," "tailor-made," "exceptional
   journeys."** Every competitor (PerryGolf, Audley, JBLuxury, GolfTraveller,
   TripCaddie, Premier) uses these. They are now meaningless.
-- **Use concrete words instead**: paid by you, vendor by vendor, on your
-  side of the table, two routes sketched, one of one.
+- **Don't claim the agency is "paid only by the client" or that there
+  are "no commissions" / "no kickbacks."** Untrue. Frame the design fee
+  as what *frees the judgment*, not as the only money on the table.
+- **Don't use "two routes sketched."** It mischaracterizes the process.
+  The itinerary is built decision by decision.
+- **Use concrete words instead**: vendor-agnostic, on your side of the
+  table, designed decision by decision, one of one.
 - **Tone is editorial, not promotional.** Quiet, specific, slightly
   understated. Think Condé Nast Traveler longform, not a brochure.
 - **No exclamation points. No emojis. No "we're passionate about travel"
@@ -56,7 +80,8 @@ When writing copy:
 app/
 ├── page.tsx              # Homepage
 ├── golf/page.tsx         # Golf travel landing
-├── journeys/page.tsx     # Bespoke journeys landing
+├── destinations/         # Destinations index + [slug] MDX detail pages
+├── journeys/page.tsx     # Legacy redirect to /destinations
 ├── about/page.tsx        # Founders + values
 ├── contact/              # Inquiry form (page.tsx + ContactForm.tsx)
 ├── journal/              # Blog index + [slug]
@@ -175,6 +200,15 @@ Editorial conventions:
 - Vercel deploy: `vercel deploy --yes --prod --name magaro` from project
   root after pushing to GitHub.
 
+## Photos needed
+
+- **Tuscany itinerary** — Chianti landscape or Castello di Brolio estate (currently using `rome.jpg` as placeholder)
+- **Charleston itinerary** — Charleston street scene, architecture, or harbor (no photo exists yet; cover field set to `charleston.jpg` — add this file when ready)
+- **Golf section (homepage §05)** — already using `old-head.webp` which is correct
+- **Pebble itinerary** — already using `pebble-18.webp` which is correct
+
+Drop new photos into `/public/photos/` and update the `cover` field in the relevant `.mdx` file.
+
 ## What's next on the list
 
 Brainstormed additions, in rough priority order:
@@ -182,7 +216,7 @@ Brainstormed additions, in rough priority order:
 1. **Multi-step "Plan my trip" intake form** replacing the contact form
 2. **"When NOT to use us" page** — counterintuitive trust play
 3. **3 real anonymized case studies** at `/portfolio`
-4. **Per-destination guide pages** under `/journeys/[slug]`
+4. **Per-destination guide pages** under `/destinations/[slug]` — built; system reads from `content/destinations/*.mdx`. Add files to grow the catalog.
 5. **Field journal map** showing places personally visited
 6. **Budget calculator** widget on the contact page
 7. **Cal.com inline booker** for the 40-minute discovery call

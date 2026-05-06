@@ -96,7 +96,7 @@ function NewsletterCallout() {
       <div className="relative p-10 lg:p-14 grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-7">
           <p className="text-[0.85rem] tracking-[0.22em] uppercase font-semibold text-[var(--color-gold-light)]">
-            The Atelier Letter
+            Waypoints
           </p>
           <h2
             className="mt-4 text-[clamp(2.2rem,4vw,3.6rem)] leading-[1.02] tracking-[-0.025em] text-balance text-[var(--color-cream)]"

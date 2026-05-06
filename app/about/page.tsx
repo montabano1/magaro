@@ -11,7 +11,7 @@ export default function AboutPage() {
       <section className="pt-40 pb-20 mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-7">
-            <SectionEyebrow>The Atelier</SectionEyebrow>
+            <SectionEyebrow>The Studio</SectionEyebrow>
             <h1
               className="mt-4 text-[clamp(2.8rem,7vw,6rem)] leading-[0.98] tracking-[-0.025em] text-balance"
               style={{ fontVariationSettings: '"opsz" 144' }}
@@ -31,7 +31,7 @@ export default function AboutPage() {
               imagined this would be the work.
             </p>
             <p className="mt-4">
-              The atelier was born in a Tuscan farmhouse, where the family
+              The studio was born in a Tuscan farmhouse, where the family
               spent enough summers to start being recognized at the bar in
               town. The trick, they realized, was personal acquaintance.
               Everything Remarkable does begins there.
@@ -57,6 +57,42 @@ export default function AboutPage() {
             bio="Lisa coordinates the kind of multi-generational European trips most families don&rsquo;t believe are possible until they&rsquo;re in the middle of one. Twenty-five years designing for families, women&rsquo;s groups, and the occasional honeymoon."
             specialties={["Italy & France", "Multigenerational", "Women's groups"]}
           />
+        </div>
+      </section>
+
+      {/* Voices — one quote per founder */}
+      <section className="bg-[var(--color-cream-dark)]/60 border-y border-[color-mix(in_oklab,var(--color-stone)_18%,transparent)] py-24">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+            <div>
+              <SectionEyebrow>Voices</SectionEyebrow>
+              <h2
+                className="mt-4 text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-balance max-w-2xl"
+                style={{ fontVariationSettings: '"opsz" 144' }}
+              >
+                What clients say
+                <em className="italic text-[var(--color-stone)]"> after the trip.</em>
+              </h2>
+            </div>
+            <Link
+              href="/testimonials"
+              className="text-xs tracking-[0.16em] uppercase border-b border-[var(--color-ink)] pb-1 self-start lg:self-end hover:text-[var(--color-sage-dark)] hover:border-[var(--color-gold)]"
+            >
+              All testimonials →
+            </Link>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-x-12 gap-y-10">
+            <FounderQuote
+              founder="Worked with Peter"
+              text="Peter has planned multiple golf trips for us across different locations, and each one has been absolutely outstanding. What really stood out was the seamless balance between activity and relaxation."
+              attribution="J.D. · Repeat client · Briarcliff Manor, NY"
+            />
+            <FounderQuote
+              founder="Worked with Lisa"
+              text="She found us an incredible house, walkable to the historic district. Her restaurant and rooftop bar recommendations were spot-on — we didn&rsquo;t have a single disappointing meal."
+              attribution="B.H. · Charleston · Monroe, CT"
+            />
+          </div>
         </div>
       </section>
 
@@ -122,14 +158,54 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* The model — how we're paid */}
+      <section className="bg-[var(--color-cream-dark)]/60 border-y border-[color-mix(in_oklab,var(--color-stone)_18%,transparent)] py-28">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-4">
+            <SectionEyebrow number="04">The Model</SectionEyebrow>
+            <h2
+              className="mt-4 text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-balance"
+              style={{ fontVariationSettings: '"opsz" 144' }}
+            >
+              How we get paid,
+              <em className="italic text-[var(--color-stone)]"> and why it matters.</em>
+            </h2>
+          </div>
+          <div className="lg:col-span-8 text-[var(--color-stone)] leading-relaxed space-y-5">
+            <p>
+              Most travel agencies are paid only by the vendors they book —
+              a commission from the hotel, the resort, the tour operator.
+              Their incentives are obvious. Our model is different. We
+              still earn commissions on the bookings we make — that&rsquo;s
+              how the industry works — but we also charge a design fee,
+              paid directly by you. That client-paid piece is what anchors
+              the work. It means our compensation isn&rsquo;t tied to which
+              vendor you pick, and our recommendations aren&rsquo;t shaped
+              by which one pays the most.
+            </p>
+            <p>
+              The design fee is $499. It&rsquo;s the only fee we charge
+              directly. It covers the entire engagement — planning, booking,
+              reservations, and live concierge through the day you fly home.
+              Whether the trip is a long weekend in Bandon or three weeks
+              across the Mediterranean, the fee doesn&rsquo;t change.
+            </p>
+            <p className="text-sm text-[var(--color-stone)]/85">
+              A reduced rate of $199 is offered for friends, family and
+              client referrals.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter */}
-      <section className="mx-auto max-w-3xl px-6 lg:px-10 pb-28 text-center">
+      <section className="mx-auto max-w-3xl px-6 lg:px-10 py-28 text-center">
         <p className="eyebrow text-[var(--color-gold)]">Stay close</p>
         <h2
           className="mt-3 text-3xl lg:text-4xl"
           style={{ fontVariationSettings: '"opsz" 144' }}
         >
-          The Atelier Letter, monthly.
+          Waypoints, monthly.
         </h2>
         <p className="mt-3 text-[var(--color-stone)]">
           Field notes from Peter &amp; Lisa, plus partner-only deals before they reach the website.
@@ -220,5 +296,36 @@ function Value({
         {children}
       </p>
     </div>
+  );
+}
+
+function FounderQuote({
+  founder,
+  text,
+  attribution,
+}: {
+  founder: string;
+  text: string;
+  attribution: string;
+}) {
+  return (
+    <figure>
+      <p className="eyebrow text-[var(--color-gold)]">{founder}</p>
+      <span
+        aria-hidden
+        className="mt-4 font-[family-name:var(--font-fraunces)] text-4xl text-[var(--color-gold)] leading-none block"
+      >
+        &ldquo;
+      </span>
+      <blockquote
+        className="mt-2 font-[family-name:var(--font-fraunces)] text-[1.2rem] lg:text-[1.3rem] leading-[1.5] text-[var(--color-ink)]"
+        style={{ fontVariationSettings: '"opsz" 144' }}
+      >
+        {text}
+      </blockquote>
+      <figcaption className="mt-5 text-xs tracking-[0.16em] uppercase text-[var(--color-stone)]">
+        {attribution}
+      </figcaption>
+    </figure>
   );
 }

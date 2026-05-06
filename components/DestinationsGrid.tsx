@@ -1,13 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { destinations } from "@/lib/destinations";
+import type { Destination } from "@/lib/destinations";
 
-export default function DestinationsGrid() {
+export default function DestinationsGrid({
+  items,
+}: {
+  items: Destination[];
+}) {
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-      {destinations.map((d, i) => (
+      {items.map((d, i) => (
         <li key={d.slug} className="group">
-          <Link href="/journeys" className="block">
+          <Link href={`/destinations/${d.slug}`} className="block">
             <div className="relative aspect-[4/5] overflow-hidden bg-[var(--color-ink)]">
               <Image
                 src={d.image}

@@ -5,19 +5,20 @@ import SectionEyebrow from "@/components/SectionEyebrow";
 import Reveal from "@/components/Reveal";
 import DestinationsGrid from "@/components/DestinationsGrid";
 import EmailCapture from "@/components/EmailCapture";
-import { getAllContent } from "@/lib/content";
+import { getAllDestinations } from "@/lib/destinations";
+import { getAllItineraries } from "@/lib/itineraries";
 
 export default async function HomePage() {
-  const journal = await getAllContent("journal");
-  const deals = await getAllContent("deals");
-  const featuredJournal = journal.slice(0, 3);
-  const featuredDeal = deals[0];
+  const destinations = await getAllDestinations();
+  const itineraries = await getAllItineraries();
+  const featuredDestinations = destinations.slice(0, 6);
+  const featuredItineraries = itineraries.slice(0, 3);
 
   return (
     <>
       <Hero />
 
-      {/* How we're different — the model */}
+      {/* §01 — How we're different */}
       <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-40">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
@@ -42,20 +43,21 @@ export default async function HomePage() {
 
             <Reveal delay={200} className="mt-12 grid sm:grid-cols-2 gap-x-10 gap-y-6 text-[var(--color-stone)] leading-relaxed">
               <p>
-                Tour operators sell their own packages. Most agencies
-                are paid by the vendors they place you with — the resort,
-                the cruise line, the tour operator. We&rsquo;re paid by
-                you. That single fact is why we can recommend the answer
-                that&rsquo;s actually right, even when it isn&rsquo;t the
-                one that pays us most.
+                Every trip starts with a conversation, not a catalog.
+                We spend time understanding where you want to go, who
+                you&rsquo;re traveling with, and what you want to feel
+                on the other side of it. Then we go to work — sourcing
+                from the full travel industry, drawing on deep
+                relationships with the hotels, guides, and
+                operators who consistently deliver.
               </p>
               <p>
-                If a tour operator&rsquo;s package fits, we&rsquo;ll book
-                it for you, often at a partner rate. If it almost fits,
-                we&rsquo;ll use it as a starting point and tune the rest.
-                If nothing off the shelf works, we&rsquo;ll build the
-                whole thing from scratch — vendor by vendor. You&rsquo;ll
-                always know which is which, and why.
+                Sometimes a tour operator&rsquo;s itinerary is the right
+                answer — we book it at our partner rate with the upgrades
+                and amenities we&rsquo;ve arranged. Sometimes it&rsquo;s
+                the starting point we tune to fit. Sometimes we build
+                the whole thing from scratch, vendor by vendor. You&rsquo;ll
+                know which approach serves your trip, and why.
               </p>
             </Reveal>
 
@@ -71,51 +73,82 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Three answers */}
-      <section className="bg-[var(--color-cream-dark)]/60 border-y border-[color-mix(in_oklab,var(--color-stone)_18%,transparent)]">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10 py-24">
-          <div className="grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-4">
-              <SectionEyebrow number="02">Three answers</SectionEyebrow>
-              <h2
-                className="mt-4 text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-balance"
+      {/* Manifesto */}
+      <section className="relative bg-[var(--color-ink)] text-[var(--color-cream)] py-28 lg:py-36">
+        <div className="grain absolute inset-0" aria-hidden />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <p className="eyebrow text-[var(--color-gold-light)] mb-14 text-center">
+            On the wall of the studio
+          </p>
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            <div>
+              <blockquote
+                className="font-[family-name:var(--font-fraunces)] text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.2]"
                 style={{ fontVariationSettings: '"opsz" 144' }}
               >
-                What &ldquo;agent for you&rdquo;
-                <br />
-                <em className="italic text-[var(--color-stone)]">
-                  actually means.
-                </em>
-              </h2>
-              <p className="mt-6 text-[var(--color-stone)] leading-relaxed max-w-md">
-                Most clients land on one of three answers. We&rsquo;ll
-                tell you which fits, even when the answer is &ldquo;use
-                a tour operator we don&rsquo;t make as much from.&rdquo;
-              </p>
+                We don&rsquo;t sell trips. We translate your{" "}
+                <em className="italic text-[var(--color-gold-light)]">ideas</em>{" "}
+                into{" "}
+                <em className="italic text-[var(--color-gold-light)]">itineraries.</em>
+              </blockquote>
+              <p className="mt-6 eyebrow text-white/55">— Peter Magaro</p>
             </div>
-            <div className="lg:col-span-8 grid sm:grid-cols-3 gap-x-6 gap-y-10">
-              <Answer
-                index="i"
-                title="A package fits"
-                copy="Sometimes a tour operator&rsquo;s itinerary is the right answer. We book it for you under our partner rate, with the upgrades and amenities we&rsquo;ve negotiated, and stay your single point of contact through the trip."
-              />
-              <Answer
-                index="ii"
-                title="It almost fits"
-                copy="The bones of a package are right; the details aren&rsquo;t. We use it as a starting point — same partner pricing — and tune the hotel, the rooms, the dining, the pacing until it&rsquo;s yours."
-              />
-              <Answer
-                index="iii"
-                title="Build from scratch"
-                copy="Nothing off the shelf works. We design the trip vendor by vendor — villa, driver, chef, courses, restaurants, transitions. Twenty-five years of relationships, all of them on your side of the table."
-              />
+            <div className="lg:border-l lg:border-white/15 lg:pl-16">
+              <blockquote
+                className="font-[family-name:var(--font-fraunces)] text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.2]"
+                style={{ fontVariationSettings: '"opsz" 144' }}
+              >
+                I&rsquo;ve been to these places. Not researched them &mdash;{" "}
+                <em className="italic text-[var(--color-gold-light)]">been to them.</em>{" "}
+                It shows.
+              </blockquote>
+              <p className="mt-6 eyebrow text-white/55">— Lisa Magaro</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What we work on */}
-      <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28">
+      {/* §02 — How We Work */}
+      <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36">
+        <div className="grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-4">
+            <SectionEyebrow number="02">How We Work</SectionEyebrow>
+            <h2
+              className="mt-4 text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-balance"
+              style={{ fontVariationSettings: '"opsz" 144' }}
+            >
+              From a phone call
+              <br />
+              <em className="italic text-[var(--color-stone)]">to your return home.</em>
+            </h2>
+          </div>
+          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-14">
+            <Step
+              n="i"
+              title="The discovery call"
+              copy="Thirty minutes, no fee, no pitch. We want to know what you&rsquo;re thinking — even if it&rsquo;s just &ldquo;beach&rdquo; or &ldquo;somewhere in Europe.&rdquo; Who you&rsquo;re going with, what you&rsquo;ve loved on other trips and what you&rsquo;d skip. By the end we can tell you how we&rsquo;d build it — and whether we&rsquo;re the right fit."
+            />
+            <Step
+              n="ii"
+              title="The design"
+              copy="If we&rsquo;re a fit, a single design fee engages us as your agent — start to finish. At each meaningful junction — the hotel, the route, the day off, the day with rounds — we lay out real options and you steer. The plan is built decision by decision, not handed over in one shot."
+            />
+            <Step
+              n="iii"
+              title="The reservations"
+              copy="Booked through preferred-partner relationships — same rate you&rsquo;d pay direct, often better, with upgrades and amenities arranged where they exist. We choose partners based on what&rsquo;s right for your trip, not who pays the highest commission. The design fee is what makes that possible."
+            />
+            <Step
+              n="iv"
+              title="The support"
+              copy="We stay reachable through your trip home. Most of the time you won&rsquo;t need us — that means it&rsquo;s going well. When something does go sideways — the flight delay, the rainout, the restaurant that went dark — you won&rsquo;t be dealing with it alone."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* §03 — What we work on */}
+      <section className="border-t border-[color-mix(in_oklab,var(--color-stone)_22%,transparent)] mx-auto max-w-[1400px] px-6 lg:px-10 py-28">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
             <SectionEyebrow number="03">What we work on</SectionEyebrow>
@@ -126,84 +159,75 @@ export default async function HomePage() {
               The trips
               <em className="italic text-[var(--color-stone)]"> we&rsquo;re built for.</em>
             </h2>
+            <p className="mt-6 text-[var(--color-stone)] leading-relaxed">
+              Most travel companies organize themselves around destinations &mdash;
+              an Italy desk, an Africa desk. We organize around the traveler.
+            </p>
           </div>
-          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-12">
+          <div className="lg:col-span-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
             <Pillar
               index="i"
-              title="Private Journeys"
-              copy="Multi-week itineraries across Europe, the Mediterranean, the South Pacific — private guides, off-market villas, the occasional helicopter."
+              title="Custom Journeys"
+              copy="A week in Italy. Ten days in Southeast Asia. A long weekend somewhere you&rsquo;ve always meant to go. Whatever the destination, we design it around you — the pace, the places, the level of structure. No package required."
             />
             <Pillar
               index="ii"
-              title="Golf Travel"
-              copy="Pebble. Sand Valley. The Old Course. Tee-time strategy paired with hotel and dining you&rsquo;d return for even without the rounds."
-              href="/golf"
+              title="Family Travel"
+              copy="From a long weekend to a two-week adventure — logistics handled, pace set for everyone in the group. We also coordinate multigenerational trips when three generations need to share the same week."
             />
             <Pillar
               index="iii"
-              title="Multigenerational"
-              copy="Eight to eighty, three generations under one roof — coordinated rooms, parallel itineraries, and one impossibly good family table."
+              title="Golf Travel"
+              copy="Pebble. Kiawah. The Old Course. Tee-time strategy paired with hotel and dining you&rsquo;d return for even without the rounds. For couples, foursomes, and groups up to twenty-four."
+              href="/golf"
             />
             <Pillar
               index="iv"
-              title="Concierge in Residence"
-              copy="During your trip, a single point of contact in your timezone — for the late train, the booked-out restaurant, the small surprise."
+              title="Women&rsquo;s Travel"
+              copy="Girls&rsquo; weekends, reunion trips, solo getaways. Lisa designs these with a particular eye for safety, comfort, and the moments that make for good stories afterward."
+            />
+            <Pillar
+              index="v"
+              title="Adventure Travel"
+              copy="National parks, ski weeks, active itineraries — Banff, Bryce, Zion, and beyond. The kind of trip where the landscape is the point and the logistics need to disappear."
+            />
+            <Pillar
+              index="vi"
+              title="Milestone Trips"
+              copy="50th birthdays, anniversaries, bucket-list moments, group reunions. When the trip has to be right, not just good — that&rsquo;s exactly when to call."
             />
           </div>
         </div>
       </section>
 
-      {/* Destinations grid */}
-      <section className="border-t border-[color-mix(in_oklab,var(--color-stone)_22%,transparent)] mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
-          <div>
-            <SectionEyebrow number="04">Currently Designing</SectionEyebrow>
-            <h2
-              className="mt-4 text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.02em] text-balance max-w-2xl"
-              style={{ fontVariationSettings: '"opsz" 144' }}
-            >
-              Six places we&rsquo;re sending clients this season.
-            </h2>
-          </div>
-          <Link
-            href="/journeys"
-            className="text-xs tracking-[0.16em] uppercase border-b border-[var(--color-ink)] pb-1 self-start lg:self-end hover:text-[var(--color-sage-dark)] hover:border-[var(--color-gold)]"
-          >
-            View all journeys →
-          </Link>
-        </div>
-        <DestinationsGrid />
-      </section>
-
-      {/* Golf feature */}
+      {/* §04 — Golf feature */}
       <section className="relative bg-[var(--color-sage-dark)] text-[var(--color-cream)] overflow-hidden">
         <div className="grain absolute inset-0" aria-hidden />
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <SectionEyebrow number="05">
+            <SectionEyebrow number="04">
               <span className="text-[var(--color-gold-light)]">A House Specialty</span>
             </SectionEyebrow>
             <h2
               className="mt-5 text-[clamp(2.25rem,5vw,4.5rem)] leading-[1] tracking-[-0.02em] text-balance text-[var(--color-cream)]"
               style={{ fontVariationSettings: '"opsz" 144' }}
             >
-              Where every golf journey
+              Any golf trip.
               <br />
               <em className="italic text-[var(--color-gold-light)]">
-                becomes remarkable.
+                Any size. Done right.
               </em>
             </h2>
             <p className="mt-6 text-white/75 max-w-md leading-relaxed">
-              Thirty years of personal trips behind every tee time. We pair
-              the courses you&rsquo;ve dreamed of with rooms, partners and
-              dinners that hold up between rounds. Pebble, Bandon, Old
-              Head, Cabot — and the quieter ones we save for clients
-              who&rsquo;ve earned the secret.
+              A long weekend at Hilton Head, a buddies trip to Pinehurst,
+              or a once-in-a-lifetime week at the Old Course — Peter has
+              planned them all. We handle tee times, rooms, dining, and
+              logistics so the only thing left to think about is your game.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <Link
                 href="/golf"
-                className="inline-flex items-center gap-3 px-7 py-4 bg-[var(--color-gold)] text-[var(--color-ink)] text-xs tracking-[0.16em] uppercase hover:bg-[var(--color-gold-light)]"
+                className="inline-flex items-center gap-3 px-7 py-4 bg-[var(--color-brand-blue)] text-[var(--color-cream)] text-xs tracking-[0.16em] uppercase hover:bg-[var(--color-sage-dark)]"
               >
                 Explore Golf Travel
                 <span aria-hidden>→</span>
@@ -214,12 +238,6 @@ export default async function HomePage() {
               >
                 Plan a foursome
               </Link>
-            </div>
-
-            <div className="mt-14 grid grid-cols-3 gap-6 max-w-md">
-              <Stat label="Tee times" value="48 partners" />
-              <Stat label="Continents" value="3" />
-              <Stat label="Group sizes" value="2 – 24" />
             </div>
           </div>
           <div className="lg:col-span-6 order-1 lg:order-2">
@@ -232,7 +250,7 @@ export default async function HomePage() {
                 className="object-cover"
               />
               <div className="absolute -bottom-3 -left-3 lg:-bottom-5 lg:-left-5 bg-[var(--color-cream)] text-[var(--color-ink)] px-5 py-4 max-w-[260px]">
-                <p className="eyebrow">Featured · Now booking</p>
+                <p className="eyebrow text-[var(--color-gold)]">In the field</p>
                 <p
                   className="mt-1 font-[family-name:var(--font-fraunces)] text-xl"
                   style={{ fontVariationSettings: '"opsz" 144' }}
@@ -245,243 +263,158 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Process */}
+      {/* §05 — Currently Designing */}
       <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36">
-        <div className="grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-4">
-            <SectionEyebrow number="06">How We Work</SectionEyebrow>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
+          <div>
+            <SectionEyebrow number="05">Currently Designing</SectionEyebrow>
             <h2
-              className="mt-4 text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] tracking-[-0.02em] text-balance"
+              className="mt-4 text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.02em] text-balance max-w-2xl"
               style={{ fontVariationSettings: '"opsz" 144' }}
             >
-              From a phone call
-              <br />
-              <em className="italic text-[var(--color-stone)]">to your front door.</em>
+              Six places we&rsquo;re sending clients this season.
             </h2>
           </div>
-          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-14">
-            <Step
-              n="i"
-              title="The conversation"
-              copy="Forty minutes, no fee, no pitch. We listen for the kind of trip you actually want — and the kind of traveler you actually are. There&rsquo;s usually a difference."
-            />
-            <Step
-              n="ii"
-              title="The blueprint"
-              copy="Two routes, sketched. One that uses a tour operator&rsquo;s package if it serves you. One we build vendor by vendor. You see both, you see what each costs, you pick."
-            />
-            <Step
-              n="iii"
-              title="The reservations"
-              copy="Held under our preferred-partner codes — same prices most agencies access, often better. Upgrades, credits and amenities arranged where they exist."
-            />
-            <Step
-              n="iv"
-              title="The companion"
-              copy="A live concierge in your timezone for the duration. The flight delay, the rainout, the surprise table. Reachable by the people who reach us."
-            />
-          </div>
+          <Link
+            href="/destinations"
+            className="text-xs tracking-[0.16em] uppercase border-b border-[var(--color-ink)] pb-1 self-start lg:self-end hover:text-[var(--color-sage-dark)] hover:border-[var(--color-gold)]"
+          >
+            View all destinations →
+          </Link>
         </div>
+        <DestinationsGrid items={featuredDestinations} />
       </section>
 
-      {/* Manifesto + Testimonial */}
-      <section className="relative bg-[var(--color-ink)] text-[var(--color-cream)] py-28 lg:py-36">
-        <div className="grain absolute inset-0" aria-hidden />
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <p className="eyebrow text-[var(--color-gold-light)]">
-            On the wall of the atelier
-          </p>
-          <blockquote
-            className="mt-6 font-[family-name:var(--font-fraunces)] text-[clamp(1.8rem,3.4vw,2.9rem)] leading-[1.2] text-balance"
-            style={{ fontVariationSettings: '"opsz" 144' }}
-          >
-            We don&rsquo;t sell trips. We sell{" "}
-            <em className="italic text-[var(--color-gold-light)]">
-              judgment
-            </em>{" "}
-            about what trip is right.
-          </blockquote>
-          <p className="mt-8 eyebrow text-white/55">— Peter Magaro</p>
-
-          <div className="mt-20 max-w-3xl mx-auto pt-12 border-t border-white/15">
-            <span aria-hidden className="font-[family-name:var(--font-fraunces)] text-5xl text-[var(--color-gold)] leading-none block">
-              &ldquo;
-            </span>
-            <blockquote
-              className="mt-2 font-[family-name:var(--font-fraunces)] text-[clamp(1.3rem,2.4vw,2rem)] leading-[1.35] text-balance text-white/85"
+      {/* §06 — Sample Itineraries */}
+      <section className="border-t border-[color-mix(in_oklab,var(--color-stone)_22%,transparent)] mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
+          <div>
+            <SectionEyebrow number="06">Sample Itineraries</SectionEyebrow>
+            <h2
+              className="mt-4 text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.02em] text-balance max-w-2xl"
               style={{ fontVariationSettings: '"opsz" 144' }}
             >
-              They didn&rsquo;t plan our trip — they choreographed it. The
-              farmhouse owner&rsquo;s mother made us pasta the first night.
-              By the second, we were practically family.
-            </blockquote>
-            <p className="mt-6 eyebrow text-white/55">
-              — A. &amp; M. Calloway · Family of six · Umbria, 2025
+              The shape of trips
+              <em className="italic text-[var(--color-stone)]"> we&rsquo;ve designed.</em>
+            </h2>
+            <p className="mt-4 max-w-xl text-[var(--color-stone)] leading-relaxed">
+              Anonymized examples — day by day — of trips we&rsquo;ve built
+              for real clients. Yours would be one of one.
             </p>
           </div>
+          <Link
+            href="/itineraries"
+            className="text-xs tracking-[0.16em] uppercase border-b border-[var(--color-ink)] pb-1 self-start lg:self-end hover:text-[var(--color-sage-dark)] hover:border-[var(--color-gold)]"
+          >
+            All itineraries →
+          </Link>
+        </div>
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
+          {featuredItineraries.map((it) => (
+            <li key={it.slug} className="group">
+              <Link href={`/itineraries/${it.slug}`} className="block">
+                {it.cover && (
+                  <div className="relative aspect-[3/2] overflow-hidden bg-[var(--color-ink)]">
+                    <Image
+                      src={it.cover}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                    />
+                  </div>
+                )}
+                <p className="mt-4 eyebrow text-[var(--color-gold)]">
+                  {it.duration} · {it.destination}
+                </p>
+                <h3
+                  className="mt-2 font-[family-name:var(--font-fraunces)] text-2xl leading-[1.15] tracking-[-0.01em] group-hover:text-[var(--color-sage-dark)] transition-colors"
+                  style={{ fontVariationSettings: '"opsz" 144, "wght" 540' }}
+                >
+                  {it.title}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--color-stone)] leading-relaxed line-clamp-3">
+                  {it.excerpt}
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Voices */}
+      <section className="bg-[var(--color-cream-dark)]/60 border-y border-[color-mix(in_oklab,var(--color-stone)_18%,transparent)] py-24 lg:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+            <div>
+              <SectionEyebrow>Voices</SectionEyebrow>
+              <h2
+                className="mt-4 text-[clamp(1.8rem,3.4vw,3rem)] leading-[1.05] tracking-[-0.02em] text-balance max-w-2xl"
+                style={{ fontVariationSettings: '"opsz" 144' }}
+              >
+                What clients say
+                <em className="italic text-[var(--color-stone)]"> when they get home.</em>
+              </h2>
+            </div>
+            <Link
+              href="/testimonials"
+              className="text-xs tracking-[0.16em] uppercase border-b border-[var(--color-ink)] pb-1 self-start lg:self-end hover:text-[var(--color-sage-dark)] hover:border-[var(--color-gold)]"
+            >
+              All testimonials →
+            </Link>
+          </div>
+          <ul className="grid sm:grid-cols-3 gap-x-8 gap-y-12">
+            <HomeQuote
+              text="All we had to do was get on the plane and Pete handled everything else. Fantastic trip with no stress (other than the actual golf)."
+              attribution="K.C. · Wisconsin · Tarrytown, NY"
+            />
+            <HomeQuote
+              text="What stood out most was the pacing — all the downtime we needed to relax and catch up, while still experiencing the rich history, culture, and beauty of each place."
+              attribution="A.S. · Charleston & Sedona · Harvard, MA"
+            />
+            <HomeQuote
+              text="Pete is excellent as a guide and agent. He comes to this as a fine golfer and someone with fine attention to detail."
+              attribution="M.W. · Pebble Beach · New York, NY"
+            />
+          </ul>
         </div>
       </section>
 
-      {/* Journal + Deals split */}
+      {/* §07 — Waypoints */}
       <section className="mx-auto max-w-[1400px] px-6 lg:px-10 py-28 lg:py-36">
         <div className="grid lg:grid-cols-12 gap-16">
-          {/* Journal */}
           <div className="lg:col-span-7">
-            <div className="flex items-end justify-between mb-10">
-              <div>
-                <SectionEyebrow number="07">The Journal</SectionEyebrow>
-                <h2
-                  className="mt-4 text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.05] tracking-[-0.02em]"
-                  style={{ fontVariationSettings: '"opsz" 144' }}
-                >
-                  Field notes &amp; dispatches.
-                </h2>
-              </div>
-              <Link
-                href="/journal"
-                className="text-xs tracking-[0.16em] uppercase border-b border-[var(--color-ink)] pb-1 hover:text-[var(--color-sage-dark)] hover:border-[var(--color-gold)]"
-              >
-                All entries →
-              </Link>
-            </div>
-
-            <ul className="divide-y divide-[color-mix(in_oklab,var(--color-stone)_22%,transparent)]">
-              {featuredJournal.map((p) => (
-                <li key={p.slug}>
-                  <Link
-                    href={`/journal/${p.slug}`}
-                    className="group grid grid-cols-12 gap-6 py-7 items-center"
-                  >
-                    <div className="col-span-3 sm:col-span-2 relative aspect-[4/5] overflow-hidden bg-[var(--color-cream-dark)]">
-                      {p.cover && (
-                        <Image
-                          src={p.cover}
-                          alt=""
-                          fill
-                          sizes="120px"
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                      )}
-                    </div>
-                    <div className="col-span-9 sm:col-span-10">
-                      <p className="eyebrow text-[var(--color-stone)]">
-                        {p.category} · {formatDate(p.date)}
-                      </p>
-                      <h3
-                        className="mt-1 font-[family-name:var(--font-fraunces)] text-xl sm:text-2xl tracking-[-0.01em] group-hover:text-[var(--color-sage-dark)] transition-colors"
-                        style={{ fontVariationSettings: '"opsz" 144' }}
-                      >
-                        {p.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-[var(--color-stone)] leading-relaxed line-clamp-2">
-                        {p.excerpt}
-                      </p>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Deals */}
-          <aside className="lg:col-span-5 lg:pl-10 lg:border-l border-[color-mix(in_oklab,var(--color-stone)_18%,transparent)]">
-            <SectionEyebrow number="08">
-              <span className="text-[var(--color-gold)]">Current Offers</span>
-            </SectionEyebrow>
+            <SectionEyebrow number="07">Waypoints</SectionEyebrow>
             <h2
               className="mt-4 text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.05] tracking-[-0.02em]"
               style={{ fontVariationSettings: '"opsz" 144' }}
             >
-              Quietly remarkable deals.
+              A letter from the studio.
             </h2>
-            <p className="mt-3 text-sm text-[var(--color-stone)] leading-relaxed">
-              Partner-only rates and seasonal openings, refreshed weekly.
-              Subscribers see them first.
-            </p>
-
-            {featuredDeal && (
-              <Link
-                href={`/deals/${featuredDeal.slug}`}
-                className="group mt-8 block bg-[var(--color-cream-dark)]/60 hover:bg-[var(--color-cream-dark)] transition-colors"
-              >
-                {featuredDeal.cover && (
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={featuredDeal.cover}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1024px) 40vw, 100vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                )}
-                <div className="p-6">
-                  <p className="eyebrow text-[var(--color-gold)]">
-                    {featuredDeal.tag || "Featured offer"}
-                    {featuredDeal.expires &&
-                      ` · Through ${formatDate(featuredDeal.expires)}`}
-                  </p>
-                  <h3
-                    className="mt-2 font-[family-name:var(--font-fraunces)] text-2xl tracking-[-0.01em]"
-                    style={{ fontVariationSettings: '"opsz" 144' }}
-                  >
-                    {featuredDeal.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-[var(--color-stone)] leading-relaxed">
-                    {featuredDeal.excerpt}
-                  </p>
-                  <p className="mt-5 text-xs tracking-[0.16em] uppercase text-[var(--color-ink)] group-hover:text-[var(--color-sage-dark)]">
-                    See the full offer →
-                  </p>
-                </div>
-              </Link>
-            )}
-
-            <div className="mt-8 p-6 border border-[color-mix(in_oklab,var(--color-stone)_25%,transparent)]">
-              <p className="eyebrow text-[var(--color-stone)]">Get them first</p>
-              <p
-                className="mt-2 font-[family-name:var(--font-fraunces)] text-xl leading-[1.2]"
-                style={{ fontVariationSettings: '"opsz" 144' }}
-              >
-                Join the Atelier Letter — deals before the website.
+            <div className="mt-6 max-w-lg space-y-4 text-[var(--color-stone)] leading-relaxed">
+              <p>
+                Waypoints is our newsletter — field notes from places we&rsquo;ve
+                been, introductions to partners worth knowing, and partner-only
+                offers before they reach the site. Written by Peter and Lisa,
+                sent when there&rsquo;s something worth saying.
               </p>
-              <div className="mt-4">
-                <EmailCapture variant="light" source="home-deals" />
-              </div>
+              <p>
+                No algorithm. No weekly cadence for its own sake. When an
+                edition goes out, it&rsquo;s because something happened worth
+                writing about.
+              </p>
             </div>
-          </aside>
+            <div className="mt-10 max-w-md">
+              <EmailCapture variant="light" source="home-waypoints" />
+            </div>
+          </div>
         </div>
       </section>
+
     </>
   );
 }
 
-function Answer({
-  index,
-  title,
-  copy,
-}: {
-  index: string;
-  title: string;
-  copy: string;
-}) {
-  return (
-    <div>
-      <p className="font-[family-name:var(--font-fraunces)] italic text-[var(--color-gold)] text-base">
-        {index}.
-      </p>
-      <h3
-        className="mt-2 font-[family-name:var(--font-fraunces)] text-[1.7rem] leading-[1.15] tracking-[-0.015em]"
-        style={{ fontVariationSettings: '"opsz" 144, "wght" 540' }}
-      >
-        {title}
-      </h3>
-      <p className="mt-4 text-[0.95rem] text-[var(--color-stone)] leading-[1.65]">
-        {copy}
-      </p>
-    </div>
-  );
-}
 
 function Pillar({
   index,
@@ -543,24 +476,32 @@ function Step({ n, title, copy }: { n: string; title: string; copy: string }) {
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+
+function HomeQuote({
+  text,
+  attribution,
+}: {
+  text: string;
+  attribution: string;
+}) {
   return (
-    <div>
-      <p className="eyebrow text-white/50">{label}</p>
-      <p
-        className="mt-1 font-[family-name:var(--font-fraunces)] text-xl text-[var(--color-cream)]"
+    <li>
+      <span
+        aria-hidden
+        className="font-[family-name:var(--font-fraunces)] text-3xl text-[var(--color-gold)] leading-none block"
+      >
+        &ldquo;
+      </span>
+      <blockquote
+        className="mt-2 font-[family-name:var(--font-fraunces)] text-[1.05rem] lg:text-[1.1rem] leading-[1.55] text-[var(--color-ink)]"
         style={{ fontVariationSettings: '"opsz" 144' }}
       >
-        {value}
+        {text}
+      </blockquote>
+      <p className="mt-5 text-[0.72rem] tracking-[0.18em] uppercase text-[var(--color-stone)]">
+        {attribution}
       </p>
-    </div>
+    </li>
   );
 }
 
-function formatDate(d: string) {
-  return new Date(d).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
